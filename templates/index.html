@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Time Logistics Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="header">
+            <img src="https://i.postimg.cc/05K2n7zY/ON.png" alt="Company Logo" class="logo">
+            <div class="company-info">
+                <h1>شركة أون تايم للخدمات اللوجستية</h1>
+                <h2>By. Ahmed Samir</h2>
+            </div>
+        </div>
+
+        <!-- Nav Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="process-tab" data-bs-toggle="tab" data-bs-target="#process" type="button" role="tab" aria-controls="process" aria-selected="true">Process</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="translate-tab" data-bs-toggle="tab" data-bs-target="#translate" type="button" role="tab" aria-controls="translate" aria-selected="false">Translate</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="convert-date-tab" data-bs-toggle="tab" data-bs-target="#convert-date" type="button" role="tab" aria-controls="convert-date" aria-selected="false">Convert Date</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="myTabContent">
+            <!-- Process Tab -->
+            <div class="tab-pane fade show active" id="process" role="tabpanel" aria-labelledby="process-tab">
+                <div class="mb-3">
+                    <label for="inputWords" class="form-label">Enter Words or Numbers (each on a new line):</label>
+                    <textarea id="inputWords" class="form-control" rows="5" placeholder="e.g., hello world&#10;123 456"></textarea>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="processInput()"><i class="fa fa-cog"></i> Process</button>
+                    <button class="btn btn-danger" onclick="clearResults()"><i class="fa fa-trash"></i> Clear</button>
+                    <button class="btn btn-success" onclick="exportToExcel()"><i class="fa fa-file-excel"></i> Export to Excel</button>
+                </div>
+                
+                <div class="table-container">
+                    <div id="resultBox" class="result-box">
+                        <!-- Processed results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Translate Tab -->
+            <div class="tab-pane fade" id="translate" role="tabpanel" aria-labelledby="translate-tab">
+                <div class="mb-3">
+                    <label for="inputText" class="form-label">Enter Text to Translate:</label>
+                    <textarea id="inputText" class="form-control" rows="5" placeholder="أدخل النص هنا"></textarea>
+                </div>
+
+                <div class="dropdown mb-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Language
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <li><a class="dropdown-item" href="#" onclick="setLanguage('ar-en')">Arabic to English</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="setLanguage('en-ar')">English to Arabic</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="translateText()"><i class="fa fa-language"></i> Translate</button>
+                    <button class="btn btn-danger" onclick="clearTranslation()"><i class="fa fa-trash"></i> Clear</button>
+                </div>
+                
+                <div class="table-container">
+                    <div id="translationResult" class="result-box">
+                        <!-- Translated text will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Date Tab -->
+            <div class="tab-pane fade" id="convert-date" role="tabpanel" aria-labelledby="convert-date-tab">
+                <div class="mb-3">
+                    <label for="dateInput" class="form-label">Enter Date:</label>
+                    <input type="date" id="dateInput" class="form-control">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="conversionType" class="form-label">Conversion Type:</label>
+                    <select id="conversionType" class="form-select">
+                        <option value="gregorian-hijri">Gregorian to Hijri</option>
+                        <option value="hijri-gregorian">Hijri to Gregorian</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary" onclick="convertDate()"><i class="fa fa-calendar"></i> Convert Date</button>
+                
+                <div class="table-container">
+                    <div id="dateConversionResult" class="result-box">
+                        <!-- Conversion result will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

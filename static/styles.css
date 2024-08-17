@@ -1,0 +1,166 @@
+body {
+    background-image: url('https://i.postimg.cc/QdHj2Gsx/logo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.logo {
+    max-width: 150px;
+    border-radius: 50%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.company-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.company-info h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.company-info h2 {
+    font-size: 1.5rem;
+    margin: 5px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Nav Tabs */
+.nav-tabs {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.nav-tabs .nav-link.active {
+    background: rgba(255, 255, 255, 0.4);
+    color: #000;
+    border-bottom: 2px solid #007bff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.nav-tabs .nav-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Tab Content */
+.tab-content {
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-process {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-process:hover {
+    background-color: #0056b3;
+}
+
+.btn-translate {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-translate:hover {
+    background-color: #218838;
+}
+
+.btn-convert {
+    background-color: #ffc107;
+    border: none;
+}
+
+.btn-convert:hover {
+    background-color: #e0a800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        max-width: 120px;
+    }
+
+    .company-info h1 {
+        font-size: 2rem;
+    }
+
+    .company-info h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 100px;
+    }
+
+    .company-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .company-info h2 {
+        font-size: 1rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .tab-content {
+        padding: 10px;
+    }
+
+    .result-box {
+        padding: 5px;
+        font-size: 0.9rem;
+    }
+}
